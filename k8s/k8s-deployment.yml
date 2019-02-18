@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kalah-deployment
+  labels:
+    app: kalah
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kalah
+  template:
+    metadata:
+      labels:
+        app: kalah
+    spec:
+      containers:
+      - name: kalah
+        image: kieranjohnmoore/kalah
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: dockerhub
