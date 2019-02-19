@@ -19,8 +19,8 @@ public class OwnPitPlayedRule implements Rule {
       throw new InvalidMoveException("Seeds cannot be played inside a house");
     }
 
-    if ((game.getPlayerTurn() == 1 && (move >= 6)) ||
-        (game.getPlayerTurn() == 2 && (move <= 8))) {
+    if ((game.getPlayerTurn() == 1 && (move > 7)) ||
+        (game.getPlayerTurn() == 2 && (move < 7))) {
       throw new InvalidMoveException("Seeds must be played in your own pits");
     }
   }
