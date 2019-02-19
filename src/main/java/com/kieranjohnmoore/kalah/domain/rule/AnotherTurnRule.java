@@ -5,6 +5,10 @@ import com.kieranjohnmoore.kalah.domain.Game;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+/**
+ * This rule determines when a player gets another turn based on the
+ * location of the final seed placed
+ */
 @Order(3)
 @Component
 public class AnotherTurnRule implements Rule {

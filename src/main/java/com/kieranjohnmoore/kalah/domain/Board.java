@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Representation of the the number of seeds in each pit on a board
+ */
 public class Board {
   private static final String STONES_PER_PIT = "6";
 
@@ -29,24 +32,40 @@ public class Board {
     state.put(14, "0"); //Player 2's House
   }
 
-  public int getPitCount(int i) {
-    return Integer.parseInt(state.get(i));
+  /**
+   * @param location the location to check
+   * @return the number of seeds in the pit specified by {@code location}
+   */
+  public int getPitCount(int location) {
+    return Integer.parseInt(state.get(location));
   }
 
-  public void setLastStone(int localtion) {
-    lastStone = localtion;
+  /**
+   * Updates the last pit that was placed into
+   * @param location the last pit location
+   */
+  public void setLastStone(int location) {
+    lastStone = location;
   }
 
+  /**
+   * Updates a pit to a new seed count
+   * @param location the pit to update
+   * @param newValue the new number of seeds
+   */
   public void setPitCount(int location, int newValue) {
     state.put(location, Integer.toString(newValue));
+  }
+
+  /**
+   * @return the last location of the last seed that was placed
+   */
+  public int getLastSeed() {
+    return lastStone;
   }
 
   @Override
   public String toString() {
     return new Gson().toJson(state);
-  }
-
-  public int getLastSeed() {
-    return lastStone;
   }
 }

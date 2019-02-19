@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Handles the creation, joining and playing of a Kalah game
+ */
 @Service
 public class GameService {
   private final GameRepository gameRepository;
@@ -25,10 +28,22 @@ public class GameService {
     this.rules = rules;
   }
 
+  /**
+   * Creates a new game
+   * @return unique identifier for the game created
+   */
   public String createGame() {
     return gameRepository.createGame();
   }
 
+  /**
+   * Joins a game with a unique id, a game can be joined if there are less than two players already
+   * in it
+   * @param id unique identifier of the game attempting to be joined
+   * @return created {@link Player} object who is now a member of this game
+   * @throws UnableToJoinGameException if there are already two players in a game
+   * @throws GameDoesNotExistException if there is no game with the provided {@code id}
+   */
   public Player joinGame(final String id)
       throws UnableToJoinGameException, GameDoesNotExistException {
     final Game game = gameRepository.getGame(id);
@@ -56,6 +71,16 @@ public class GameService {
         (game.getPlayerTurn() == 2 && game.getPlayer2Token().equals(playerToken));
   }
 
+  /**
+   * Makes a move on a game
+   * @param id the identifier for the game
+   * @param playerToken the unique token for the player attempting to make a move, retreived from
+   *                    the {@link Player} object provided by {@code joinGame}
+   * @param location the pit to play from
+   * @return the board representation calculated after the move
+   * @throws InvalidMoveException if the move is not allowed at this point in the game
+   * @throws GameDoesNotExistException if the token does not correspond to an active game
+   */
   public String makeMove(final String id, final String playerToken, final int location)
       throws InvalidMoveException, GameDoesNotExistException {
     final Game game = gameRepository.getGame(id);

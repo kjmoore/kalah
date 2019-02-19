@@ -2,7 +2,6 @@ package com.kieranjohnmoore.kalah.controller;
 
 import com.kieranjohnmoore.kalah.domain.exception.GameDoesNotExistException;
 import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
-import com.kieranjohnmoore.kalah.repository.GameRepository;
 import com.kieranjohnmoore.kalah.service.GameService;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -6,6 +6,10 @@ import com.kieranjohnmoore.kalah.domain.Game;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+/**
+ * This rule handles the movement of seeds around the board, assuming the move is valid - this
+ * will always happen
+ */
 @Order(1)
 @Component
 public class MoveSeedRule implements Rule {

@@ -6,6 +6,9 @@ import com.kieranjohnmoore.kalah.domain.Game;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+/**
+ * This rule captures opponents seeds if a player places their final seed in an empty pot
+ */
 @Order(2)
 @Component
 public class EmptyPitCaptureRule implements Rule {

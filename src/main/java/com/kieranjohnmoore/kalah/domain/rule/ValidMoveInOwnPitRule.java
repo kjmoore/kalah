@@ -6,6 +6,9 @@ import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+/**
+ * This rule checks that the player has played a valid move from one of their own pots
+ */
 @Order(0)
 @Component
 public class ValidMoveInOwnPitRule implements Rule {
