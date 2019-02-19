@@ -33,9 +33,12 @@ public class Board {
     return Integer.parseInt(state.get(i));
   }
 
+  public void setLastStone(int localtion) {
+    lastStone = localtion;
+  }
+
   public void setPitCount(int location, int newValue) {
     state.put(location, Integer.toString(newValue));
-    lastStone = location;
   }
 
   @Override
