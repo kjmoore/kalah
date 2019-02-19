@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CompleteGameTest {
+public class GameControllerTest {
   @Test
   public void testRunThrough() {
     Assert.assertTrue(true);
