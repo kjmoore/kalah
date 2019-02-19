@@ -22,7 +22,7 @@ public class MoveController {
   public String index(@PathVariable String gameId, @PathVariable int pit,
                       @PathVariable String player) {
     try {
-      return gameService.makeMove(gameId, player, pit);
+      return gameService.makeMove(gameId, player, pit).toString();
     } catch (InvalidMoveException e) {
       return "This move is invalid";
     } catch (GameDoesNotExistException e) {

@@ -11,14 +11,6 @@ public class Game {
   private int winner;
 
   /**
-   * Get's a string representation of the board
-   * @return json showing the seed positions on the board
-   */
-  public String getGameState() {
-    return board.toString();
-  }
-
-  /**
    * Retrieves the board representation for editing
    * @return the board
    */

@@ -1,5 +1,6 @@
 package com.kieranjohnmoore.kalah.service;
 
+import com.kieranjohnmoore.kalah.domain.Game;
 import com.kieranjohnmoore.kalah.domain.Player;
 import com.kieranjohnmoore.kalah.domain.exception.GameDoesNotExistException;
 import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
@@ -49,13 +50,11 @@ public class GameServiceTest {
     final Player player1 = gameService.joinGame(gameId);
     final Player player2 = gameService.joinGame(gameId);
 
-    final String resultingGame = gameService.makeMove(gameId, player1.getToken(), 2);
-    final String resultingGame2 = gameService.makeMove(gameId, player2.getToken(), 11);
+    final Game resultingGame = gameService.makeMove(gameId, player1.getToken(), 2);
+    final Game resultingGame2 = gameService.makeMove(gameId, player2.getToken(), 11);
 
     Assert.assertNotNull("No resulting game returned for move 1", resultingGame);
-    Assert.assertFalse("Blank resulting game returned for move 1", resultingGame.isBlank());
     Assert.assertNotNull("No resulting game returned for move 2", resultingGame2);
-    Assert.assertFalse("Blank resulting game returned for move 2", resultingGame2.isBlank());
   }
 
   @Test(expected = GameDoesNotExistException.class)
@@ -79,7 +78,7 @@ public class GameServiceTest {
 
     gameService.makeMove(gameId, "1234", 2);
   }
-  
+
   @Test(expected = InvalidMoveException.class)
   public void makeMoveWhenNotYourTurn() throws InvalidMoveException, GameDoesNotExistException, UnableToJoinGameException {
     final String gameId = gameService.createGame();

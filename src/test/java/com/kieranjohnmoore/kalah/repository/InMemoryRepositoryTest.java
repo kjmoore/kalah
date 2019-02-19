@@ -34,7 +34,7 @@ public class InMemoryRepositoryTest {
     Assert.assertEquals("New game was not initialised",
         "{\"1\":\"6\",\"2\":\"6\",\"3\":\"6\",\"4\":\"6\",\"5\":\"6\",\"6\":\"6\"," +
             "\"7\":\"0\",\"8\":\"6\",\"9\":\"6\",\"10\":\"6\",\"11\":\"6\"," +
-            "\"12\":\"6\",\"13\":\"6\",\"14\":\"0\"}", game.getGameState());
+            "\"12\":\"6\",\"13\":\"6\",\"14\":\"0\"}", game.getBoard().toString());
   }
 
   @Test
@@ -46,12 +46,11 @@ public class InMemoryRepositoryTest {
 
     final Game updatedGame = repo.getGame(id);
 
-    System.out.println(game.getGameState());
     Assert.assertNotNull("The game was not returned", updatedGame);
     Assert.assertEquals("New game was not initialised",
         "{\"1\":\"3\",\"2\":\"6\",\"3\":\"6\",\"4\":\"6\",\"5\":\"6\",\"6\":\"6\"," +
             "\"7\":\"0\",\"8\":\"6\",\"9\":\"6\",\"10\":\"6\",\"11\":\"6\"," +
-            "\"12\":\"6\",\"13\":\"6\",\"14\":\"0\"}", updatedGame.getGameState());
+            "\"12\":\"6\",\"13\":\"6\",\"14\":\"0\"}", updatedGame.getBoard().toString());
   }
 
   @Test(expected = GameDoesNotExistException.class)

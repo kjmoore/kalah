@@ -81,7 +81,7 @@ public class GameService {
    * @throws InvalidMoveException if the move is not allowed at this point in the game
    * @throws GameDoesNotExistException if the token does not correspond to an active game
    */
-  public String makeMove(final String id, final String playerToken, final int location)
+  public Game makeMove(final String id, final String playerToken, final int location)
       throws InvalidMoveException, GameDoesNotExistException {
     final Game game = gameRepository.getGame(id);
     if (!isCorrectTurn(game, playerToken)) {
@@ -94,6 +94,6 @@ public class GameService {
 
     gameRepository.updateGame(id, game);
 
-    return game.getGameState();
+    return game;
   }
 }
