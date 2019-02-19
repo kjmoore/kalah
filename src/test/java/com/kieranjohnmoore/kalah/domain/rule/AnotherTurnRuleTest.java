@@ -6,13 +6,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AnotherGoRuleTest {
-  private AnotherGoRule rule;
+public class AnotherTurnRuleTest {
+  private AnotherTurnRule rule;
   private Game game;
 
   @Before
   public void setup() {
-    rule = new AnotherGoRule();
+    rule = new AnotherTurnRule();
     game = new Game();
   }
 

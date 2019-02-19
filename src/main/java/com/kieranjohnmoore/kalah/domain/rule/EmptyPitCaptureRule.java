@@ -2,7 +2,6 @@ package com.kieranjohnmoore.kalah.domain.rule;
 
 import com.kieranjohnmoore.kalah.domain.Board;
 import com.kieranjohnmoore.kalah.domain.Game;
-import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -13,7 +12,7 @@ public class EmptyPitCaptureRule implements Rule {
   @Override
   public void applyRule(Game game, int move) {
     final Board board = game.getBoard();
-    final int lastStone = board.getLastStone();
+    final int lastStone = board.getLastSeed();
 
     if ((game.getPlayerTurn() == 1 && lastStone <= 6) ||
         (game.getPlayerTurn() == 2 && lastStone >= 8)) {

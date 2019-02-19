@@ -6,16 +6,16 @@ import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
 import org.junit.Before;
 import org.junit.Test;
 
-public class OwnPitPlayedRuleTest {
-  private OwnPitPlayedRule rule;
+public class ValidMoveInOwnPitRuleTest {
+  private ValidMoveInOwnPitRule rule;
   private Game game;
 
   @Before
   public void setup() {
-    rule = new OwnPitPlayedRule();
+    rule = new ValidMoveInOwnPitRule();
     game = new Game();
   }
-
+  
   @Test
   public void allLegalMovesPlayer1() throws InvalidMoveException {
     game.setPlayerTurn(1);
@@ -120,5 +120,13 @@ public class OwnPitPlayedRuleTest {
   public void playedInOpponents13() throws InvalidMoveException {
     game.setPlayerTurn(1);
     rule.applyRule(game, 13);
+  }
+
+  @Test(expected = InvalidMoveException.class)
+  public void playedEmptyPit() throws InvalidMoveException {
+    game.setPlayerTurn(1);
+    game.getBoard().setPitCount(1, 0);
+
+    rule.applyRule(game, 1);
   }
 }

@@ -46,7 +46,7 @@ public class Board {
     return new Gson().toJson(state);
   }
 
-  public int getLastStone() {
+  public int getLastSeed() {
     return lastStone;
   }
 }

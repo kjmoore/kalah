@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Order(0)
 @Component
-public class OwnPitPlayedRule implements Rule {
+public class ValidMoveInOwnPitRule implements Rule {
   @Override
   public void applyRule(Game game, int move) throws InvalidMoveException {
     if (move > 14) {
@@ -17,6 +17,10 @@ public class OwnPitPlayedRule implements Rule {
 
     if (move == 7 || move == 14) {
       throw new InvalidMoveException("Seeds cannot be played inside a house");
+    }
+
+    if (game.getBoard().getPitCount(move) == 0) {
+      throw new InvalidMoveException("There are no seeds to pick up in this pit");
     }
 
     if ((game.getPlayerTurn() == 1 && (move > 7)) ||
