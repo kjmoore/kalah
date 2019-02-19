@@ -1,6 +1,7 @@
 package com.kieranjohnmoore.kalah.service;
 
 import com.kieranjohnmoore.kalah.domain.Game;
+import com.kieranjohnmoore.kalah.domain.Player;
 import com.kieranjohnmoore.kalah.domain.exception.GameDoesNotExistException;
 import com.kieranjohnmoore.kalah.domain.exception.InvalidMoveException;
 import com.kieranjohnmoore.kalah.domain.exception.UnableToJoinGameException;
@@ -28,14 +29,14 @@ public class GameService {
     return gameRepository.createGame();
   }
 
-  public String joinGame(final String id)
+  public Player joinGame(final String id)
       throws UnableToJoinGameException, GameDoesNotExistException {
     final Game game = gameRepository.getGame(id);
 
     if (game.getPlayer1Token() == null) {
       final String token = UUID.randomUUID().toString();
       game.setPlayer1Token(token);
-      return token;
+      return new Player(token, 1);
     } else if (game.getPlayer2Token() == null) {
       String token = UUID.randomUUID().toString();
       final String otherToken = game.getPlayer1Token();
@@ -45,7 +46,7 @@ public class GameService {
       }
 
       game.setPlayer2Token(token);
-      return token;
+      return new Player(token, 2);
     }
     throw new UnableToJoinGameException("The game is full");
   }

@@ -33,11 +33,9 @@ public class Board {
     return state.get(i);
   }
 
-  public void incrementPitCount(int i) {
-    int count = state.get(i);
-    count++;
-    state.put(i, count);
-    lastStone = i;
+  public void setPitCount(int location, int newValue) {
+    state.put(location, newValue);
+    lastStone = location;
   }
 
   @Override

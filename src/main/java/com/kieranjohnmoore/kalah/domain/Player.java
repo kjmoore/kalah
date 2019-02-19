@@ -1,7 +1,12 @@
 package com.kieranjohnmoore.kalah.domain;
 
+import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+
 public class Player {
+  @Expose
   private final String token;
+  @Expose
   private final int playerNumber;
 
   public Player(String token, int playerNumber) {
@@ -11,9 +16,6 @@ public class Player {
 
   @Override
   public String toString() {
-    return "Player{" +
-        "token='" + token + '\'' +
-        ", playerNumber=" + playerNumber +
-        '}';
+    return new Gson().toJson(this);
   }
 }

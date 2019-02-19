@@ -26,7 +26,7 @@ public class GameController {
   @RequestMapping("/joinGame/{id}")
   public String join(@PathVariable String id) {
     try {
-      return gameService.joinGame(id);
+      return gameService.joinGame(id).toString();
     } catch (UnableToJoinGameException e) {
       return "Game is full";
     } catch (GameDoesNotExistException e) {
