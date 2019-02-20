@@ -52,7 +52,7 @@ public class Game {
   }
 
   /**
-   * @return 1 if player 1 has won, 2 if player 2 has won or 0 if the game is not over
+   * @return 1 if player 1 has won, 2 if player 2 has won, 3 for a draw or 0 if the game is not over
    */
   public int getWinner() {
     return winner;
