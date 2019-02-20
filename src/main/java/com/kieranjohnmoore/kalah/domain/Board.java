@@ -2,6 +2,9 @@ package com.kieranjohnmoore.kalah.domain;
 
 import com.google.gson.Gson;
 
+import org.hibernate.validator.internal.util.stereotypes.Immutable;
+
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -52,6 +55,10 @@ public class Board {
    */
   public int getLastSeed() {
     return lastStone;
+  }
+
+  public Map<Integer, String> getStatus() {
+    return Collections.unmodifiableMap(state);
   }
 
   @Override

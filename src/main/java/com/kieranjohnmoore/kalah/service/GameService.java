@@ -96,4 +96,14 @@ public class GameService {
 
     return game;
   }
+
+  /**
+   * Returns a game in progress
+   * @param id the unique identifier for a game
+   * @return the game in progress
+   * @throws GameDoesNotExistException if no such game exists
+   */
+  public Game getGame(final String id) throws GameDoesNotExistException {
+    return gameRepository.getGame(id);
+  }
 }
