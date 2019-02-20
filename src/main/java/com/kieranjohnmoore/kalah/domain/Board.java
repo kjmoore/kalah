@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Representation of the the number of seeds in each pit on a board
@@ -16,19 +17,8 @@ public class Board {
 
   Board() {
     state = new HashMap<>();
-    state.put(1, STONES_PER_PIT);
-    state.put(2, STONES_PER_PIT);
-    state.put(3, STONES_PER_PIT);
-    state.put(4, STONES_PER_PIT);
-    state.put(5, STONES_PER_PIT);
-    state.put(6, STONES_PER_PIT);
+    IntStream.range(1, 15).forEach(i -> state.put(i, STONES_PER_PIT));
     state.put(7, "0"); // Player 1's House
-    state.put(8, STONES_PER_PIT);
-    state.put(9, STONES_PER_PIT);
-    state.put(10, STONES_PER_PIT);
-    state.put(11, STONES_PER_PIT);
-    state.put(12, STONES_PER_PIT);
-    state.put(13, STONES_PER_PIT);
     state.put(14, "0"); //Player 2's House
   }
 
