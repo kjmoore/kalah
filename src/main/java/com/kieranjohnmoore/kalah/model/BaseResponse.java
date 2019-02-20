@@ -17,7 +17,7 @@ abstract class BaseResponse {
   }
 
   @SuppressWarnings("unused") //Used by String
-  public String getUrl() {
+  public String getUri() {
     return ServletUriComponentsBuilder.fromCurrentRequest()
         .replacePath(GameController.PATH + "/" + id)
         .build().toString();

@@ -18,9 +18,9 @@ public class VictoryRule implements Rule {
   public void applyRule(Game game, int move) {
     final Board board = game.getBoard();
     final boolean player1Empty =
-        IntStream.range(1, 6).allMatch(i -> board.getPitCount(i) == 0);
+        IntStream.range(1, 7).allMatch(i -> board.getPitCount(i) == 0);
     final boolean player2Empty =
-        IntStream.range(8, 13).allMatch(i -> board.getPitCount(i) == 0);
+        IntStream.range(8, 14).allMatch(i -> board.getPitCount(i) == 0);
 
     if (player1Empty || player2Empty) {
       int player1Score = IntStream.range(1,8).boxed().mapToInt(board::getPitCount).sum();

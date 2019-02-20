@@ -41,6 +41,94 @@ public class VictoryRuleTest {
   }
 
   @Test
+  public void player1NotQuiteEmpty() {
+    game.getBoard().setPitCount(1,0);
+    game.getBoard().setPitCount(2,0);
+    game.getBoard().setPitCount(3,0);
+    game.getBoard().setPitCount(4,0);
+    game.getBoard().setPitCount(5,0);
+    game.getBoard().setPitCount(6,1);
+    game.getBoard().setPitCount(7,10);
+    game.getBoard().setPitCount(8,1);
+    game.getBoard().setPitCount(9,1);
+    game.getBoard().setPitCount(10,1);
+    game.getBoard().setPitCount(11,1);
+    game.getBoard().setPitCount(12,1);
+    game.getBoard().setPitCount(13,1);
+    game.getBoard().setPitCount(14,10);
+
+    rule.applyRule(game, 1);
+
+    Assert.assertEquals("The game was classed as a win", 0, game.getWinner());
+  }
+
+  @Test
+  public void player1NotQuiteEmpty2() {
+    game.getBoard().setPitCount(1,1);
+    game.getBoard().setPitCount(2,0);
+    game.getBoard().setPitCount(3,0);
+    game.getBoard().setPitCount(4,0);
+    game.getBoard().setPitCount(5,0);
+    game.getBoard().setPitCount(6,0);
+    game.getBoard().setPitCount(7,10);
+    game.getBoard().setPitCount(8,1);
+    game.getBoard().setPitCount(9,1);
+    game.getBoard().setPitCount(10,1);
+    game.getBoard().setPitCount(11,1);
+    game.getBoard().setPitCount(12,1);
+    game.getBoard().setPitCount(13,1);
+    game.getBoard().setPitCount(14,10);
+
+    rule.applyRule(game, 1);
+
+    Assert.assertEquals("The game was classed as a win", 0, game.getWinner());
+  }
+
+  @Test
+  public void player2NotQuiteEmpty() {
+    game.getBoard().setPitCount(1,1);
+    game.getBoard().setPitCount(2,1);
+    game.getBoard().setPitCount(3,1);
+    game.getBoard().setPitCount(4,1);
+    game.getBoard().setPitCount(5,1);
+    game.getBoard().setPitCount(6,1);
+    game.getBoard().setPitCount(7,10);
+    game.getBoard().setPitCount(8,0);
+    game.getBoard().setPitCount(9,0);
+    game.getBoard().setPitCount(10,0);
+    game.getBoard().setPitCount(11,0);
+    game.getBoard().setPitCount(12,0);
+    game.getBoard().setPitCount(13,1);
+    game.getBoard().setPitCount(14,10);
+
+    rule.applyRule(game, 1);
+
+    Assert.assertEquals("The game was classed as a win", 0, game.getWinner());
+  }
+
+  @Test
+  public void player2NotQuiteEmpty2() {
+    game.getBoard().setPitCount(1,1);
+    game.getBoard().setPitCount(2,1);
+    game.getBoard().setPitCount(3,1);
+    game.getBoard().setPitCount(4,1);
+    game.getBoard().setPitCount(5,1);
+    game.getBoard().setPitCount(6,1);
+    game.getBoard().setPitCount(7,10);
+    game.getBoard().setPitCount(8,1);
+    game.getBoard().setPitCount(9,0);
+    game.getBoard().setPitCount(10,0);
+    game.getBoard().setPitCount(11,0);
+    game.getBoard().setPitCount(12,0);
+    game.getBoard().setPitCount(13,0);
+    game.getBoard().setPitCount(14,10);
+
+    rule.applyRule(game, 1);
+
+    Assert.assertEquals("The game was classed as a win", 0, game.getWinner());
+  }
+
+  @Test
   public void player2EmptyVictory() {
     //Ensure one side of the board is empty
     game.getBoard().setPitCount(1,1);

@@ -39,7 +39,7 @@ public class GameControllerTest {
     Assert.assertFalse("The response had no id", createResponse.getId().isBlank());
 
     Assert.assertEquals("The URL was incorrect",
-        "http://localhost/games/" + createResponse.getId(), createResponse.getUrl());
+        "http://localhost/games/" + createResponse.getId(), createResponse.getUri());
   }
 
   @Test
@@ -57,7 +57,7 @@ public class GameControllerTest {
     Assert.assertEquals("There was already a winner", 0, showResponse.getWinner());
 
     Assert.assertEquals("The URL was incorrect",
-        "http://localhost/games/" + showResponse.getId(), showResponse.getUrl());
+        "http://localhost/games/" + showResponse.getId(), showResponse.getUri());
   }
 
   @Test
@@ -79,7 +79,7 @@ public class GameControllerTest {
 
     Assert.assertEquals("The ids did not match", gameId, joinResponse.getId());
     Assert.assertEquals("The URL was incorrect",
-        "http://localhost/games/" + joinResponse.getId(), joinResponse.getUrl());
+        "http://localhost/games/" + joinResponse.getId(), joinResponse.getUri());
   }
 
   @Test
@@ -114,7 +114,7 @@ public class GameControllerTest {
 
     Assert.assertEquals("The ids did not match", gameId, error.getId());
     Assert.assertEquals("The URL was incorrect",
-        "http://localhost/games/" + error.getId(), error.getUrl());
+        "http://localhost/games/" + error.getId(), error.getUri());
     Assert.assertEquals("The error did not match", error.getError(), "Game is full");
   }
 
@@ -130,7 +130,7 @@ public class GameControllerTest {
 
     Assert.assertEquals("The ids did not match", gameId, error.getId());
     Assert.assertEquals("The URL was incorrect",
-        "http://localhost/games/" + error.getId(), error.getUrl());
+        "http://localhost/games/" + error.getId(), error.getUri());
     Assert.assertEquals("The error did not match", error.getError(), "Game does not exist");
   }
 
